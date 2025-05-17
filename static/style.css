@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500vh;
+    height: 200vh;
     background-color: #f4f4f4;
 }
 
@@ -12,12 +12,12 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 950px;
+    width: 650px;
     text-align: center;
 }
 
 .chat-box {
-    height: 900px;
+    height: 600px;
     overflow-y: auto;
     border: 1px solid #ddd;
     padding: 10px;
