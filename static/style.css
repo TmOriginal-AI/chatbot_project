@@ -82,3 +82,26 @@ button:hover {
         font-size: 14px;
     }
 }
+/* אנימציה כללית לדף */
+body {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* אנימציה לכותרת */
+.chat-header {
+    animation: bounceIn 1s ease-in-out;
+}
+
+/* אפקט fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* אפקט bounce קליל */
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
