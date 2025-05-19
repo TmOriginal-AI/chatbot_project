@@ -3,7 +3,7 @@ function sendMessage() {
     if (!userInput.trim()) return;
 
     let chatBox = document.getElementById("chat-box");
-    chatBox.innerHTML += `<div><strong>אתה:</strong> ${userInput}</div>`;
+    chatBox.innerHTML += `<div class="user-msg"><strong>אתה:</strong> ${userInput}</div>`;
     document.getElementById("user-input").value = "";
 
     fetch("/chat", {
@@ -13,23 +13,42 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        chatBox.innerHTML += `<div><strong>בוט:</strong> ${data.reply}</div>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
+        // אפקט הקלדה
+        typeBotReply(data.reply);
     })
     .catch(error => {
-        chatBox.innerHTML += `<div><strong>שגיאה:</strong> לא ניתן לקבל תשובה</div>`;
+        chatBox.innerHTML += `<div class="bot-msg error"><strong>שגיאה:</strong> לא ניתן לקבל תשובה</div>`;
     });
 }
 
 function handleKeyPress(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault(); // שלא יעבור שורה
+        event.preventDefault();
         sendMessage();
     }
 }
 
-// ✨ הוספת פונקציית autoGrow
 function autoGrow(element) {
     element.style.height = "auto";
     element.style.height = (element.scrollHeight) + "px";
+}
+
+// פונקציית אפקט הקלדה
+function typeBotReply(text) {
+    const chatBox = document.getElementById("chat-box");
+    const botMsg = document.createElement("div");
+    botMsg.classList.add("bot-msg");
+    botMsg.innerHTML = '<strong>בוט:</strong> ';
+    chatBox.appendChild(botMsg);
+
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            botMsg.innerHTML += text.charAt(i);
+            i++;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        } else {
+            clearInterval(interval);
+        }
+    }, 30); // מהירות ההקלדה
 }
