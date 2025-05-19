@@ -23,8 +23,8 @@ function sendMessage() {
 
 function handleKeyPress(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
+        event.preventDefault(); // מונע ירידת שורה
+        sendMessage(); // שולח את ההודעה
     }
 }
 
