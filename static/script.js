@@ -22,7 +22,14 @@ function sendMessage() {
 }
 
 function handleKeyPress(event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // שלא יעבור שורה
         sendMessage();
     }
+}
+
+// ✨ הוספת פונקציית autoGrow
+function autoGrow(element) {
+    element.style.height = "auto";
+    element.style.height = (element.scrollHeight) + "px";
 }
