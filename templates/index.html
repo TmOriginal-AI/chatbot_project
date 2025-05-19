@@ -10,9 +10,15 @@
     <div class="chat-container">
         <h2>ברוך הבא לתיקי - הצ'אט של מוצב התקשוב 📡</h2>
         <div class="chat-box" id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="הקלד הודעה..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">שלח</button>
-    </div>
+        <div style="display: flex; flex-direction: row-reverse; gap: 10px; align-items: flex-end; margin-top: 10px;">
+  <textarea id="user-input"
+            placeholder="כתוב את ההודעה שלך כאן..."
+            dir="rtl"
+            rows="1"
+            oninput="autoGrow(this)"
+            style="flex: 1; resize: none; overflow: hidden; padding: 10px; border: 1px solid #ccc; border-radius: 10px; font-family: Arial, sans-serif; font-size: 16px;"></textarea>
+  <button onclick="sendMessage()" style="padding: 10px 20px; font-size: 16px;">שלח</button>
+</div>
     <script src="/static/script.js"></script>
 </body>
 </html>
