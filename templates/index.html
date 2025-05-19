@@ -12,10 +12,12 @@
         <div class="chat-box" id="chat-box"></div>
         <div style="display: flex; flex-direction: row-reverse; gap: 10px; align-items: flex-end; margin-top: 10px;">
   <textarea id="user-input"
-            placeholder="כתוב את ההודעה שלך כאן..."
-            dir="rtl"
-            rows="1"
-            oninput="autoGrow(this)"
+          placeholder="כתוב את ההודעה שלך כאן..."
+          dir="rtl"
+          rows="1"
+          oninput="autoGrow(this)"
+          onkeypress="handleKeyPress(event)"
+          style="flex: 1; resize: none; overflow: hidden; padding: 10px; border: 1px solid #ccc; border-radius: 10px; font-family: Arial, sans-serif;"></textarea>
             style="flex: 1; resize: none; overflow: hidden; padding: 10px; border: 1px solid #ccc; border-radius: 10px; font-family: Arial, sans-serif; font-size: 16px;"></textarea>
   <button onclick="sendMessage()" style="padding: 10px 20px; font-size: 16px;">שלח</button>
 </div>
